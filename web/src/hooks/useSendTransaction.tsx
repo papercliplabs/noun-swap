@@ -97,6 +97,7 @@ export default function useSendTransaction({
     // Handle toasts
     useEffect(() => {
         let pendingToastId: number | undefined = undefined;
+        console.log("HANDLE TOAST", state);
 
         switch (state) {
             case SendTransactionState.Rejected:
@@ -126,7 +127,7 @@ export default function useSendTransaction({
         }
 
         setPendingToastId((currentId) => {
-            if (currentId) {
+            if (currentId != undefined) {
                 removeToast(currentId);
             }
 

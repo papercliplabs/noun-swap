@@ -3,6 +3,7 @@ import { useState } from "react";
 import Icon from "./Icon";
 import Modal from "./Modal";
 import Link from "next/link";
+import { NOUN_SWAP_CONTRACT_ADDRESS } from "../common/constants";
 
 export default function HowItWorksModal() {
     const [howItWorksModalOpen, setHowItWorksModalOpen] = useState<boolean>(false);
@@ -29,11 +30,20 @@ export default function HowItWorksModal() {
                         </li>
                         <li>
                             Approve your Noun:
-                            <div>This will approve the Nouns Treasury to swap your Noun if the prop passes.</div>
+                            <div>
+                                This will approve the{" "}
+                                <Link
+                                    href={"https://goerli.etherscan.io/address/" + NOUN_SWAP_CONTRACT_ADDRESS}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    NounSwap contract
+                                </Link>{" "}
+                                to swap your Noun with the Nouns Treasury.
+                            </div>
                         </li>
                         <li>
-                            Create a Swap Prop{" "}
-                            <div>Confirm the transaction and a swap proposal will be created in Nouns Governance.</div>
+                            Create a Swap <div>Confirm the transaction and the swap will be executed.</div>
                         </li>
                     </ol>
                     <div className="flex flex-col pt-6 gap-2">
@@ -51,7 +61,7 @@ export default function HowItWorksModal() {
                             >
                                 this cast from ToadyHawk.eth
                             </Link>
-                            . NounSwap makes it easy for Noun owners to get the Noun they want. Simply propose a swap
+                            . NounSwap makes it easy for Noun owners to get the Noun they want. Simply create a swap
                             between your Noun and one in the treasury.
                         </div>
                     </div>
