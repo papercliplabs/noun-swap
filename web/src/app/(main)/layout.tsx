@@ -15,7 +15,7 @@ function Header() {
             <header className="flex flex-col justify-between items-center w-full border-b-2 border-gray-300 px-4 md:px-10 pt-4 pb-2 gap-4">
                 <div className="flex flex-row justify-between w-full">
                     <div className="flex md:flex-1 items-center gap-6">
-                        <div className="pr-6 md:border-r-2">
+                        <div className="pr-6">
                             <LinkRetainParams
                                 href="/"
                                 className="text-gray-900  flex flex-row  gap-2 [&>svg]:hover:rotate-12 shrink grow-0 "
@@ -24,18 +24,18 @@ function Header() {
                                 <h5 className="hidden md:flex">NounSwap</h5>
                             </LinkRetainParams>
                         </div>
-                        <span className="hidden md:flex">
+                        {/* <span className="hidden md:flex">
                             <Nav navInfo={navInfo} />
-                        </span>
+                        </span> */}
                     </div>
                     <div className="flex-1 flex justify-end gap-6 text-gray-600 items-center">
                         <HowItWorksModal />
                         <WalletButton />
                     </div>
                 </div>
-                <div className="flex md:hidden w-full justify-between bg-gray-200 rounded-2xl p-1">
+                {/* <div className="flex md:hidden w-full justify-between bg-gray-200 rounded-2xl p-1">
                     <Nav navInfo={navInfo} />
-                </div>
+                </div> */}
             </header>
         </>
     );

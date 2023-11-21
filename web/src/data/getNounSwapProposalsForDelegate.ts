@@ -33,7 +33,6 @@ export async function getNounSwapProposalsForDelegate(address?: Address): Promis
     const publicClient = createPublicClient({
         chain: goerli,
         transport: http(goerli.rpcUrls.alchemy.http + "/" + process.env.NEXT_PUBLIC_ALCHEMY_ID),
-        pollingInterval: 10_000,
     });
 
     // Nextjs is caching this...

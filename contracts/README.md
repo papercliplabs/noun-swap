@@ -39,5 +39,8 @@ forge snapshot
 Deploy
 
 ```bash
-forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+# Goerli
+source .env; forge create NounSwap --contracts src/NounSwap.sol --private-key $FOUNDRY_PRIVATE_KEY --rpc-url $GOERLI_RPC_URL --constructor-args 0x99265CE0983aab76F5a3789663FDD887dE66638A 0xc15008dE43D93D115BD64ED4D95817fFdBfb6DEA --etherscan-api-key $ETHERSCAN_API_KEY --verify
+
+# Mainnet (TODO)
 ```

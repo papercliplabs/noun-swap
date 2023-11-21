@@ -76,7 +76,6 @@ export default function NounSwap({ treasuryNoun, address }: NounSwapProps) {
                     </div>
                 </div>
                 <div className="flex flex-col-reverse md:flex-row w-full justify-end px-4 md:px-10 py-4 md:py-2 item-center items-center gap-6 text-gray-600">
-                    <span>Creates a prop in Nouns governance.</span>
                     <button
                         className="btn-primary w-full md:w-auto justify-center"
                         onClick={() => {
@@ -85,7 +84,7 @@ export default function NounSwap({ treasuryNoun, address }: NounSwapProps) {
                         }}
                         disabled={selectedUserNoun == undefined}
                     >
-                        Create a swap prop
+                        Create a swap
                     </button>
                 </div>
             </div>
