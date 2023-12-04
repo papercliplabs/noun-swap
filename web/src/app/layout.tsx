@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Providers>
                     <div className="flex flex-col min-h-screen justify-between w-full overflow-hidden">
                         <span className="bg-yellow-100 p-2 w-full text-center">
-                            NounSwap is currently in beta on Goerli testnet. To try it out, get a{" "}
+                            DEV VERSION!!! - NounSwap is currently in beta on Goerli testnet. To try it out, get a{" "}
                             <Link
                                 href="https://nouns-webapp-nu.vercel.app"
                                 className="inline"
