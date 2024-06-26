@@ -37,7 +37,7 @@ const config: CodegenConfig = {
     },
     "./src/data/generated/ponder/": {
       documents: ["src/app/**/*.{ts,tsx}"],
-      schema: `../indexer/generated/schema.graphql`,
+      schema: `./schema.graphql`,
       preset: "client",
       plugins: [],
       config: {
