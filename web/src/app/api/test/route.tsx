@@ -14,7 +14,7 @@ const query = graphql(/* GraphQL */ `
 `);
 
 export async function GET(req: Request, { params }: { params: { id: string } }) {
-  const data = await graphQLFetch("http://indexer.railway.internal", query as any, {}, { cache: "no-store" });
+  const data = await graphQLFetch("http://indexer.railway.internal:42069", query as any, {}, { cache: "no-store" });
   // const data = await graphQLFetch("http://localhost:42069", query as any, {}, { cache: "no-store" });
   return Response.json(data);
 }
