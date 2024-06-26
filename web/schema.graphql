@@ -1,0 +1,195 @@
+type Query {
+  nounsTokenTransfer(id: String!): NounsTokenTransfer
+  nounsTokenTransfers(where: NounsTokenTransferFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): NounsTokenTransferPage!
+  nounsErc20Transfer(id: String!): NounsErc20Transfer
+  nounsErc20Transfers(where: NounsErc20TransferFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): NounsErc20TransferPage!
+  user(id: String!): User
+  users(where: UserFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): UserPage!
+}
+
+type NounsTokenTransfer {
+  id: String!
+  timestamp: BigInt!
+  tokenId: BigInt!
+  from: String!
+  to: String!
+}
+
+scalar BigInt
+
+type NounsTokenTransferPage {
+  items: [NounsTokenTransfer!]!
+  pageInfo: PageInfo!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+input NounsTokenTransferFilter {
+  AND: [NounsTokenTransferFilter]
+  OR: [NounsTokenTransferFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  tokenId: BigInt
+  tokenId_not: BigInt
+  tokenId_in: [BigInt]
+  tokenId_not_in: [BigInt]
+  tokenId_gt: BigInt
+  tokenId_lt: BigInt
+  tokenId_gte: BigInt
+  tokenId_lte: BigInt
+  from: String
+  from_not: String
+  from_in: [String]
+  from_not_in: [String]
+  from_gt: String
+  from_lt: String
+  from_gte: String
+  from_lte: String
+  to: String
+  to_not: String
+  to_in: [String]
+  to_not_in: [String]
+  to_gt: String
+  to_lt: String
+  to_gte: String
+  to_lte: String
+}
+
+type NounsErc20Transfer {
+  id: String!
+  timestamp: BigInt!
+  amount: BigInt!
+  from: String!
+  to: String!
+}
+
+type NounsErc20TransferPage {
+  items: [NounsErc20Transfer!]!
+  pageInfo: PageInfo!
+}
+
+input NounsErc20TransferFilter {
+  AND: [NounsErc20TransferFilter]
+  OR: [NounsErc20TransferFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  from: String
+  from_not: String
+  from_in: [String]
+  from_not_in: [String]
+  from_gt: String
+  from_lt: String
+  from_gte: String
+  from_lte: String
+  to: String
+  to_not: String
+  to_in: [String]
+  to_not_in: [String]
+  to_gt: String
+  to_lt: String
+  to_gte: String
+  to_lte: String
+}
+
+type User {
+  id: String!
+  address: String!
+  nounBalance: BigInt!
+  mainnetNounsErc20Balance: BigInt!
+  baseNounsErc20Balance: BigInt!
+}
+
+type UserPage {
+  items: [User!]!
+  pageInfo: PageInfo!
+}
+
+input UserFilter {
+  AND: [UserFilter]
+  OR: [UserFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_gt: String
+  id_lt: String
+  id_gte: String
+  id_lte: String
+  address: String
+  address_not: String
+  address_in: [String]
+  address_not_in: [String]
+  address_gt: String
+  address_lt: String
+  address_gte: String
+  address_lte: String
+  nounBalance: BigInt
+  nounBalance_not: BigInt
+  nounBalance_in: [BigInt]
+  nounBalance_not_in: [BigInt]
+  nounBalance_gt: BigInt
+  nounBalance_lt: BigInt
+  nounBalance_gte: BigInt
+  nounBalance_lte: BigInt
+  mainnetNounsErc20Balance: BigInt
+  mainnetNounsErc20Balance_not: BigInt
+  mainnetNounsErc20Balance_in: [BigInt]
+  mainnetNounsErc20Balance_not_in: [BigInt]
+  mainnetNounsErc20Balance_gt: BigInt
+  mainnetNounsErc20Balance_lt: BigInt
+  mainnetNounsErc20Balance_gte: BigInt
+  mainnetNounsErc20Balance_lte: BigInt
+  baseNounsErc20Balance: BigInt
+  baseNounsErc20Balance_not: BigInt
+  baseNounsErc20Balance_in: [BigInt]
+  baseNounsErc20Balance_not_in: [BigInt]
+  baseNounsErc20Balance_gt: BigInt
+  baseNounsErc20Balance_lt: BigInt
+  baseNounsErc20Balance_gte: BigInt
+  baseNounsErc20Balance_lte: BigInt
+}
