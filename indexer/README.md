@@ -1,6 +1,6 @@
-# NounSwap Web App
+# NounSwap Indexer App
 
-NounSwap web app built using [Nextjs](https://nextjs.org)
+NounSwap indexer app built using [ponder](https://ponder.sh/)
 
 ## Local Development
 
@@ -15,7 +15,7 @@ Populate the `.env` file
 Install dependencies
 
 ```bash
-pnpm install
+pnpm
 ```
 
 Start dev server
