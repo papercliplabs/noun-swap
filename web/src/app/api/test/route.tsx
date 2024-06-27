@@ -14,7 +14,8 @@ const query = graphql(/* GraphQL */ `
 `);
 
 export async function GET(req: Request, { params }: { params: { id: string } }) {
-  const INDEXER_URL = "http://indexer.railway.internal:7732"; // `http://${process.env.INDEXER_DOMAIN}:${process.env.INDEXER_PORT}`;
+  // const INDEXER_URL = "http://indexer.railway.internal:7732"; // `http://${process.env.INDEXER_DOMAIN}:${process.env.INDEXER_PORT}`;
+  const INDEXER_URL = "https://nounswap-indexer.up.railway.app";
   console.log("INDEXER URL", INDEXER_URL);
   const data = await graphQLFetch(INDEXER_URL, query as any, {}, { cache: "no-store" });
   // const data = await graphQLFetch("http://localhost:42069", query as any, {}, { cache: "no-store" });
