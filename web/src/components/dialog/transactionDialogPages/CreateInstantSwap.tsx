@@ -14,7 +14,7 @@ interface CreateInstantSwapProps {
 }
 
 export function CreateInstantSwap({ fromNoun, toNoun, progressStepper }: CreateInstantSwapProps) {
-  const { swap, error, state } = useNounsErc20Swap();
+  const { swap, error, state, hash } = useNounsErc20Swap();
 
   const router = useRouter();
 
@@ -27,9 +27,9 @@ export function CreateInstantSwap({ fromNoun, toNoun, progressStepper }: CreateI
   useEffect(() => {
     if (state == "success") {
       forceAllNounRevalidation(); // Force revalidation so will update explore
-      router.push(`/instant-swap/${toNoun.id}/${fromNoun.id}`);
+      router.push(`/instant-swap/${toNoun.id}/${fromNoun.id}/${hash}`);
     }
-  }, [state, router, fromNoun.id, toNoun.id]);
+  }, [state, hash, router, fromNoun.id, toNoun.id]);
 
   return (
     <div className="flex flex-col items-center justify-center gap-6">

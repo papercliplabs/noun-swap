@@ -2,8 +2,9 @@ import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { HTMLAttributes } from "react";
 import { cn } from "@/utils/shadcn";
+import { Slottable } from "@radix-ui/react-slot";
 
-interface FeatureCardProps extends HTMLAttributes<HTMLDivElement> {
+interface FeatureCardProps extends HTMLAttributes<HTMLButtonElement> {
   title: string;
   description: string;
   cta: string;
@@ -21,22 +22,25 @@ export default function FeatureCard({
   ...props
 }: FeatureCardProps) {
   return (
-    <div
+    <button
       className={cn(
         "label-md bg-background-secondary relative flex h-[160px] flex-1 justify-between overflow-hidden rounded-2xl",
         className
       )}
+      onClick={onCtaClick}
       {...props}
     >
       <div className="flex flex-col gap-4 py-6 pl-6 text-start">
         <div>
           <span>{title}.</span> <span className="text-content-secondary">{description}</span>
         </div>
-        <Button variant="secondary" className="h-8 w-fit rounded-full px-5 py-3" onClick={onCtaClick}>
-          {cta}
+        <Button variant="secondary" className="h-8 w-fit rounded-full px-5 py-3" asChild>
+          <Slottable>
+            <div>{cta}</div>
+          </Slottable>
         </Button>
       </div>
       <Image src={imgSrc} alt="" width={140} height={160} className="h-[160px] w-[140px]" />
-    </div>
+    </button>
   );
 }
