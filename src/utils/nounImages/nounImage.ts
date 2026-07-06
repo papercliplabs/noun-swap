@@ -25,6 +25,15 @@ export function buildBase64Image(
   return "data:image/svg+xml;base64," + svgBase64;
 }
 
+type NounPart = { filename: string; data: string };
+
+// Seeds can reference trait indices added onchain after this static art snapshot
+// was last synced. Fall back to an empty layer so a new trait degrades gracefully
+// instead of crashing every page that builds a Noun. "0x0" renders nothing.
+function getPart(parts: NounPart[], index: number, traitType: string): NounPart {
+  return parts[index] ?? { filename: `${traitType}-unknown`, data: "0x0" };
+}
+
 export function getNounData(seed: {
   background: number;
   body: number;
@@ -34,10 +43,10 @@ export function getNounData(seed: {
 }) {
   return {
     parts: [
-      bodies[seed.body],
-      accessories[seed.accessory],
-      heads[seed.head],
-      glasses[seed.glasses],
+      getPart(bodies, seed.body, "body"),
+      getPart(accessories, seed.accessory, "accessory"),
+      getPart(heads, seed.head, "head"),
+      getPart(glasses, seed.glasses, "glasses"),
     ],
     background: bgcolors[seed.background],
   };
